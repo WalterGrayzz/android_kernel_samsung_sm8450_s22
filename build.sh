@@ -176,13 +176,13 @@ function build_kernel() {
         fi
 
         # Source CI functions and setup KSU/Patches
-        if [ -f ".github/scripts/ci.sh" ]; then
-            source .github/scripts/ci.sh
+        #if [ -f ".github/scripts/ci.sh" ]; then
+            #source .github/scripts/ci.sh
             # setup_ksu relies on KSU_VARIANT being set
-            setup_ksu
-        else
-            echo "Warning: .github/scripts/ci.sh not found, skipping patch application."
-        fi
+            #setup_ksu
+        #else
+            #echo "Warning: .github/scripts/ci.sh not found, skipping patch application."
+        #fi
         
         echo "Building Common Kernel..."
         (
