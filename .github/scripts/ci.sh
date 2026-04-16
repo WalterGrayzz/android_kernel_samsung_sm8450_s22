@@ -38,25 +38,25 @@ prepare_env() {
 }
 
 # Patches & Setup
-setup_ksu() {
+#setup_ksu() {
     # Expects KSU_VARIANT to be set
-    log "Applying KernelSU Patches..."
-    local KERNEL_PATCHES="$GITHUB_WORKSPACE/patches"
+    #log "Applying KernelSU Patches..."
+    #l#ocal KERNEL_PATCHES="$GITHUB_WORKSPACE/patches"
 
-    pushd kernel_platform/common
+    #pushd kernel_platform/common
     
-    curl -LSs "https://raw.githubusercontent.com/KernelSU-Next/KernelSU-Next/next/kernel/setup.sh" | bash -
+    #curl -LSs "https://raw.githubusercontent.com/KernelSU-Next/KernelSU-Next/next/kernel/setup.sh" | bash -
 
-    log "Applying Baseband Guard..."
-    wget -O- https://github.com/vc-teahouse/Baseband-guard/raw/main/setup.sh | bash
-    sed -i '/^config LSM$/,/^help$/{ /^[[:space:]]*default/ { /baseband_guard/! s/selinux/selinux,baseband_guard/ } }' security/Kconfig
+    #log "Applying Baseband Guard..."
+    #wget -O- https://github.com/vc-teahouse/Baseband-guard/raw/main/setup.sh | bash
+    #sed -i '/^config LSM$/,/^help$/{ /^[[:space:]]*default/ { /baseband_guard/! s/selinux/selinux,baseband_guard/ } }' security/Kconfig
     
-    log "Applying More Managers Support(Thanks @pershoot)..."
-    cd KernelSU-Next
-    patch -p1 < $KERNEL_PATCHES/ksun-add-more-managers-support.patch
+    #log "Applying More Managers Support(Thanks @pershoot)..."
+    #cd KernelSU-Next
+    #patch -p1 < $KERNEL_PATCHES/ksun-add-more-managers-support.patch
 
-    popd > /dev/null
-}
+    #popd > /dev/null
+#}
 
 
 
